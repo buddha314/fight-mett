@@ -50,13 +50,24 @@ async function main() {
 }
 
 function buildThreatMatrixDialog(me, threats) {
-  let content = "<div><table><tbody>"
+  let content = `<div><table><thead>
+    <th>Name</th>
+    <th>Score</th>
+    <th>D</th>
+    <th>Weapons</th>
+    </thead><tbody>`
   for (const e of threats) {
-    let threatRowHTML = `<tr><td>${e.threatName}</td><td>${e.threatScore}<tr>`
+    let weps = e.threatWeapons.map((x) => x.name)
+    let threatRowHTML = `<tr>
+      <td>${e.threatName}</td>
+      <td>${e.threatScore}</td>
+      <td>${e.threatDistance}</td>
+      <td>${weps}</td>
+      <tr>`
     content += threatRowHTML;
   }
   content += "</tbody></table></div>"
-  console.log(content);
+  //console.log(content);
   let dialog = new Dialog({
     title:`Threat Matrix for ${me.actor.name}`,
     content: content,
