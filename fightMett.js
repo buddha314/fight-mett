@@ -10,6 +10,12 @@ class Threat {
   }
 };
 
+class CombatFeature {
+  constructor(json) {
+    this.name = json.name;
+  }
+}
+
 
 main()
 async function main() {
@@ -89,14 +95,14 @@ function identifyEnemies(me) {
 }
 
 // Begin to evaluate the opponents threat level
-function evaluateThreat(me, opponent) {
-  let distance = findDistance(me, opponent);
+function evaluateThreat(me, you) {
+  let distance = findDistance(me, you);
   let threat = new Threat();
-  threat.threatName = opponent.actor.name
-  threat.threatIntimidation = opponent.actor.data.data.skills.itm.total
+  threat.threatName = you.actor.name
+  threat.threatIntimidation = you.actor.data.data.skills.itm.total
   threat.threatDistance = distance;
   threat.threatScore = threat.threatIntimidation
-  threat.threatWeapons = opponent.actor.data.items.filter((x) => ["weapon", "spell"].includes(x.type) &&  x.data.range.value >= distance)
+  threat.threatWeapons = you.actor.data.items.filter((x) => ["weapon", "spell"].includes(x.type) &&  x.data.range.value >= distance)
 
   return threat
 }

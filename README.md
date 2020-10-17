@@ -18,21 +18,40 @@ D&D 5E.  Not an academic model of Decision Theory, we often just roll a die.  Al
 inputs should reflect attributes a DD5E monster already possesses without creating
 new metrics or capabilities. Additionally, most scores are prefixed with a 10 for structural consistency.
 
-## Assessments
+## Features
 
 Let's structure the features so that smarter or more experienced creatures can make better decisions.
 
+At the moment, it appears we'll need to pass the following into any feature assessment
+1. Combat (the object)
+1. Me (who is asking)
+1. You (who you're asking about)
+
+It seems that we'll need to create a CombatFeature interface (do they do that in Javascript?) that is marshaled from the Feature JSON.  Kinda like
+
+```
+> let areYouInMeleeWithMe = new CombatFeature(inMelee)
+> let meleeScore = areYouInMeleeWithMe.evaluate(combat, me, you)
+```
+
+with `inMelee` coming from our JSON files.
+
 1. Name
+1. Description and perhaps examples of users / uses
+1. Limitations: An array of conditions where it can't be used.
+  1. What creatures can't use it even if they have the appropriate score
+  1. What environments prevent its use.  E.g. "underwater"
 1. Category (Threat, Vulnerability, etc)
+1. Target: Is this a feature of myself (am I hiding?) or you, my enemy?
 1. Sophistication.  from -4,... unlocked according to creatures Intelligence, Wisdom or other.  Maybe we need a defining attribute?  Default will be 0.
 1. Opponent Features: What things do I need to know about the enemy to do this calculation?
 1. Calculation
 
 ## Feature Sophistication
 
-For lack of other resources, we'll use [this guide](https://www.dmingwithcharisma.com/2011/10/dd-stats-in-simple-language/)
+For lack of other resources, we'll use [this guide](https://www.dmingwithcharisma.com/2011/10/dd-stats-in-simple-language/).  Give each feature a score indicating how sophisticated of a fighter you need to be to use it.   Vampires will be able to come up with a lot more options than an ooze.
 
-* -5 An amoeba could perceive this as a threat. "I am currently being eaten"
+* -5 An amoeba could perceive this as a threat. "I am currently being eaten".  Oozes
 * -4
 * -3
 * -2
@@ -59,10 +78,13 @@ This will get the juices flowing.
 * Max damage for the weapon you're wielding.
 * Can you cast spells?
 * Can you cast really nasty spells?
+* Are you distracted by my ally?
+* Am I hiding in shadows?
+* Your character class
 
 ## Decision Strategy
 
-The Monster, nah, let's call it an NPC, nah, let's call it Lightning the Skeleton (he/him), evaluates each PC for each attribute he can understand the applies those scores to a matrix.
+The Monster, nah, let's call it an NPC, nah, let's call it Lightning the Skeleton (he/him), evaluates each PC for each attribute he can understand then applies those scores to a matrix.
 
 Then he rolls a d20, adds it to each PC score, and performs the strategy with the highest value.
 
