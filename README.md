@@ -18,6 +18,11 @@ D&D 5E.  Not an academic model of Decision Theory, we often just roll a die.  Al
 inputs should reflect attributes a DD5E monster already possesses without creating
 new metrics or capabilities. Additionally, most scores are prefixed with a 10 for structural consistency.
 
+## Decisions
+Ultimately, the NPC should make a decision on what action to take.  In the early examples, it's most "hit with sword" or "shoot with bow", but it should be easy to extend to all the available [combat actions](https://www.dndbeyond.com/sources/phb/combat#ActionsinCombat)
+
+DD5E doesn't provide attributes like "aggressiveness" unless you go into the backgrounds, and those won't be available for monsters.  We'll have to try to infer them from the standard characteristics.  That will require a terrific amount of artistic license.
+
 ## Features
 
 Let's structure the features so that smarter or more experienced creatures can make better decisions.
