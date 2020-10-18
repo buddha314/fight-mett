@@ -1,3 +1,12 @@
+class Agent {
+  constructor(combatant) {
+    this.combatant = combatant;
+  }
+  identifyEnemies(combat) {
+     this.enemies = combat.combatants.filter((x) => x.actor.data.type != this.combatant.actor.data.type)
+  }
+}
+
 class CombatFeature {
   constructor(json) {
     this.name = json.name;
@@ -10,9 +19,18 @@ class CombatFeature {
 
 obj = {
   'name':'inMeleeWithMe',
-  'calc':"new Roll('d20').roll().total"
+  'sophistication': -4,
+  'sophisticationAttribute':'intelligence',
+  'calc':"new Roll('d20').roll().total + you.combatant.actor.data.data.skills.itm.total"
 }
+
+let fight = game.combats.combats[0]
+let me = new Agent(fight.combatant)
+me.identifyEnemies(fight);
+
+let you = new Agent(fight.combatants[3])
 
 let cf = new CombatFeature(obj);
 cf.name
-cf.evaluate({},{}, {})
+
+cf.evaluate(fight, me, you)
