@@ -23,6 +23,8 @@ Ultimately, the NPC should make a decision on what action to take.  In the early
 
 DD5E doesn't provide attributes like "aggressiveness" unless you go into the backgrounds, and those won't be available for monsters.  We'll have to try to infer them from the standard characteristics.  That will require a terrific amount of artistic license.
 
+Lightning needs to optimize his strategy to some personal goal.  That is really hard to identify from just a stat block.
+
 ## Features
 
 Let's structure the features so that smarter or more experienced creatures can make better decisions.

@@ -40,6 +40,14 @@ isIntimidating = {
   'calc':"you.combatant.actor.data.data.skills.itm.total"
 }
 
+alliesSurrenduring = {
+  'name':'alliesSurrenduring',
+  'description':'Detect if your allies are still in the fight. This is determined by at least 50% still alive / engaged.  Not sure how to define this one yet, so just rolling a die.',
+  'sophistication': 1,
+  'sophisticationAttribute':'me.combatant.actor.data.data.skills.wis.total',
+  'calc':"new Roll('d20').roll().total'
+}
+
 let fight = game.combats.combats[0]
 let me = new Agent(fight.combatant)
 me.identifyEnemies(fight);
@@ -50,3 +58,10 @@ let cf = new CombatFeature(obj);
 cf.name
 
 cf.evaluate(fight, me, you)
+
+for (let k of game.combats.keys()) {
+  console.log("Key " + k +  " is active " + game.combats.get(k).data.active)
+}
+
+// Get the first active combat
+let fight = game.combats.filter((x) => x.data.active === true)[0]
