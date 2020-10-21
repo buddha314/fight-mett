@@ -1,16 +1,15 @@
 {
   "name":"fight-mett",
-  "title":"Fight Me (on) VTT"
+  "title":"Fight Me (on) VTT",
   "description":"Basic NPC AI Module for Foundry VTT.  Unlike standard GAME AI, the NPCs are out for themselves.  More like Westworld than Skyrim!",
   "version":"0.1.0",
-  "templateVersion":2,
   "author":"Dolan Dynamix",
   "scripts":[
     "scripts/features.js",
     "scripts/fightMett.js"
   ],
   "url": "https://github.com/buddha314/fight-mett",
-  "manifest": "https://github.com/buddha314/fight-mett/system.json",
+  "manifest": "https://github.com/buddha314/fight-mett/module.json",
   "download": "https://your/packaged/download/archive.zip",
   "languages": [
   {
