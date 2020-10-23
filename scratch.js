@@ -65,3 +65,8 @@ for (let k of game.combats.keys()) {
 
 // Get the first active combat
 let fight = game.combats.filter((x) => x.data.active === true)[0]
+let me = game.combats.combats[0].combatant
+let you = game.combats.combats[0].combatants[2]
+chirp(fight, me, you)
+
+ 

@@ -6,6 +6,7 @@
   "author":"Dolan Dynamix",
   "scripts":[
     "scripts/features.js",
+    "scripts/chirping.js",
     "scripts/fightMett.js"
   ],
   "url": "https://github.com/buddha314/fight-mett",
