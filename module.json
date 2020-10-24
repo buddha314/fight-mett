@@ -7,7 +7,7 @@
   "scripts":[
     "scripts/features.js",
     "scripts/chirping.js",
-    "scripts/fightMett.js"
+    "scripts/main.js"
   ],
   "url": "https://github.com/buddha314/fight-mett",
   "manifest": "https://github.com/buddha314/fight-mett/module.json",

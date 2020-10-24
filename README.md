@@ -114,3 +114,23 @@ We'll use `s` as the general score.
 Needs to accommodate the following issues:
 1. Can they get into melee range quickly?
 1. Can they damage me from where they are?
+
+# Installing
+
+Until we get the proper packaging together, I'm just editing the scripts directly within the `modules` subfolder and keeping that as a git directly.
+
+Using Windows Subsystem for Linux (WSL)  I basically do
+
+```
+> cd /mnt/c/Users/Buddha\ 314/AppData/Local/FoundryVTT/Data/modules/
+> git clone https://github.com/buddha314/fight-mett.git
+> cd fight-mett
+```
+Or, if I'm updating I go straight to the existing directory.
+
+```
+> cd /mnt/c/Users/Buddha\ 314/AppData/Local/FoundryVTT/Data/modules/fight-mett/
+> git pull
+```
+
+Once you start Foundry, the module should show up in your list.  Don't forget to enable it within the world.  After that, if you update the code, you should be able to use Manage Modules to update.
