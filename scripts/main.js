@@ -1,10 +1,18 @@
 class Agent {
   constructor(combatant) {
     this.combatant = combatant;
-    this.enemies = []
+    this.enemies = [];
+    this.features = [];
   }
   identifyEnemies(combat) {
      this.enemies = combat.combatants.filter((x) => x.actor.data.type != this.combatant.actor.data.type)
+  }
+  identifyFeatures() {
+    let features = getAllFeatures();
+    //console.log(features)
+    for (let feature of features){
+       console.log(feature.name)
+    }
   }
 }
 
@@ -19,6 +27,7 @@ Hooks.on("updateCombat", (combat, turn, diff, id) => {
   //let enemies = identifyEnemies(combat, me)
   //let you = pickEnemy(combat, me, enemies)
   me.identifyEnemies(combat)
+  me.identifyFeatures()
   let you = pickEnemy(combat, me)
   // This is automatically included from the module
   chirp(combat, me, you)
