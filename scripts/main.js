@@ -9,13 +9,14 @@ class Agent {
   }
   identifyFeatures() {
     let features = getAllFeatures();
-    //console.log(features)
     for (let feature of features){
-       console.log(feature.name)
-       console.log(feature.sophisticationAttribute.replace('me', 'this'))
-       console.log(this)
-       console.log(eval(feature.sophisticationAttribute.replace('me', 'this')))
+       var s = eval(feature.sophisticationAttribute.replace('me', 'this'))
+       if (s >= feature.sophistication) {
+         //console.log(s + " >= " + feature.sophistication)
+         this.features.push(feature)
+       }
     }
+    console.log(this.features)
   }
 }
 
