@@ -9,12 +9,8 @@ async function chirp(combat, me, you) {
 }
 
 async function getChirp(combat, me, you) {
-    msg = await `Hey ${you.combatant.actor.name} you shoulda stayed on the bench! Bender!`
+const allchirps = [`Hey ${you.combatant.actor.name} you shoulda stayed on the bench! Bender!`, 'insert witty comment here'];
+    //msg = await `Hey ${you.combatant.actor.name} you shoulda stayed on the bench! Bender!`
+    msg = allchirps[Math.floor(Math.random() * allchirps.length)];
     return msg
 }
-
-var quip = allchirps[Math.floor(Math.random() * allchirps.length)];
-//class = Chirp
-//  constructor(obj) {
-//    this.
-//  }
