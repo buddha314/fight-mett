@@ -10,3 +10,9 @@ async function getChirp(combat, me, you) {
     msg = await `Hey ${you.combatant.actor.name} you shoulda stayed on the bench! Bender!`
     return msg
 }
+
+
+//class = Chirp
+//  constructor(obj) {
+//    this.
+//  }
