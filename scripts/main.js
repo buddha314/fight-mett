@@ -47,3 +47,10 @@ function findDistance(me, you) {
   let d =  Math.floor(Math.sqrt(Math.pow(me.token.x - you.token.x, 2) + Math.pow(me.token.y-you.token.y,2)) / 50) * 5
   return d;
 }
+
+function getAllFeatures() {
+  let allFeatures = {"allFeatures":[
+    {"name":"inMelee"}
+  ]}
+  return allFeatures
+}
