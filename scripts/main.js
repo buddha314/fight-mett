@@ -12,6 +12,9 @@ class Agent {
     //console.log(features)
     for (let feature of features){
        console.log(feature.name)
+       console.log(feature.sophisticationAttribute.replace('me', 'this'))
+       console.log(this)
+       console.log(eval(feature.sophisticationAttribute.replace('me', 'this')))
     }
   }
 }

@@ -1,7 +1,10 @@
 class CombatFeature {
   constructor(obj) {
     this.name = obj["name"];
-    this.calc = obj.calc;
+    this.description = obj["description"];
+    this.sophistication = obj['sophistication']
+    this.sophisticationAttribute = obj['sophisticationAttribute']
+    this.calc = obj['calc'];
   }
   evaluate(combat, me, you) {
     return eval(this.calc);
@@ -20,7 +23,7 @@ function getAllFeatures() {
     "name":"isIntimidating",
     "description":"Does the opponent have a high intimidation skill",
     "sophistication": -2,
-    "sophisticationAttribute":"me.combatant.actor.data.data.skills.wis.total",
+    "sophisticationAttribute":"me.combatant.actor.data.data.skills.prc.total",
     "calc":"you.combatant.actor.data.data.skills.itm.total"
   }))
 
@@ -36,7 +39,7 @@ function getAllFeatures() {
       "name":"alliesSurrenduring",
       "description":"Detect if your allies are still in the fight. This is determined by at least 50% still alive / engaged.  Not sure how to define this one yet, so just rolling a die.",
       "sophistication": 1,
-      "sophisticationAttribute":"me.combatant.actor.data.data.skills.wis.total",
+      "sophisticationAttribute":"me.combatant.actor.data.data.skills.prc.total",
       "calc":"new Roll('d20').roll().total"
     }))
 
