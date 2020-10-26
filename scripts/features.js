@@ -33,14 +33,14 @@ function getAllFeatures() {
       "description":"Is the opponent actively hitting me with a melee weapon?",
       "sophistication": -4,
       "sophisticationAttribute":"me.combatant.actor.data.data.skills.inv.total",
-      "calc":"new Roll('d20').roll().total + you.combatant.actor.data.data.skills.itm.total"
+      "calc":"you.combatant.actor.data.data.skills.itm.total"
     }))
   allFeatures.push(new CombatFeature({
       "name":"alliesSurrenduring",
       "description":"Detect if your allies are still in the fight. This is determined by at least 50% still alive / engaged.  Not sure how to define this one yet, so just rolling a die.",
       "sophistication": 1,
       "sophisticationAttribute":"me.combatant.actor.data.data.skills.prc.total",
-      "calc":"new Roll('d20').roll().total"
+      "calc":"2"
     }))
 
   //console.log(allFeatures)

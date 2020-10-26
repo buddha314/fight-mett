@@ -5,7 +5,8 @@ class Agent {
     this.features = [];
   }
   identifyEnemies(combat) {
-     this.enemies = combat.combatants.filter((x) => x.actor.data.type != this.combatant.actor.data.type)
+     //this.enemies = combat.combatants.filter((x) => x.actor.data.type != this.combatant.actor.data.type)
+     this.enemies = combat.combatants.filter((x) => x.actor.data.type != this.combatant.actor.data.type).map((x) => new Agent(x))
   }
   identifyFeatures() {
     let features = getAllFeatures();
@@ -16,7 +17,7 @@ class Agent {
          this.features.push(feature)
        }
     }
-    console.log(this.features)
+    //console.log(this.features)
   }
 }
 
@@ -48,10 +49,22 @@ function pickEnemy(combat, me) {
 
 function evaluateThreat(combat, me, you) {
     // 'you' is not an Agent yet
-    let score = you.actor.data.data.skills.itm.total
+    let score = 0;
+    //console.log("me: ")
+    //console.log(me)
+    for (const feature of me.features) {
+      //console.log("you: ")
+      //console.log(you)
+      //console.log(feature.calc)
+      var x = feature.calc.replace('me', 'this')
+      //console.log(x)
+      score += eval(x)
+    }
+    //let score = you.actor.data.data.skills.itm.total
     let r = new Roll('d20')
+    console.log('bonuses for ' + you.combatant.actor.name + ': ' + score)
     score += r.roll().total
-    console.log("Threat score for " + you.name + ": " + score)
+    console.log("Threat score for " + you.combatant.actor.name + ": " + score)
     return score
 }
 
