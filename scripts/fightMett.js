@@ -23,6 +23,7 @@ async function main() {
   let fight = game.combats.combats[0]
   let me = fight.combatant
   let meWeapons = me.actor.data.items.filter((x) => ["weapon", "spell"].includes(x.type))
+  let youWeapons = you.actor.data.items.data.equipped.filter((x) => ["true", "false"])
   let enemies = identifyEnemies(me)
   let friends = fight.combatants.filter((x) => x.actor.data.type === me.actor.data.type)
 
