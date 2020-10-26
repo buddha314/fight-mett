@@ -35,7 +35,7 @@ Hooks.on("updateCombat", (combat, turn, diff, id) => {
   me.identifyFeatures()
   let you = pickEnemy(combat, me)
   // This is automatically included from the module
-  //chirp(combat, me, you)
+  chirp(combat, me, you)
 })
 
 
