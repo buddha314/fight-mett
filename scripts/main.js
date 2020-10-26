@@ -35,7 +35,7 @@ Hooks.on("updateCombat", (combat, turn, diff, id) => {
   me.identifyFeatures()
   let you = pickEnemy(combat, me)
   // This is automatically included from the module
-  chirp(combat, me, you)
+  //chirp(combat, me, you)
 })
 
 
@@ -56,9 +56,9 @@ function evaluateThreat(combat, me, you) {
       //console.log("you: ")
       //console.log(you)
       //console.log(feature.calc)
-      var x = feature.calc.replace('me', 'this')
+      //var x = feature.calc.replace('me', 'this')
       //console.log(x)
-      score += eval(x)
+      score += feature.evaluate(combat, me, you)
     }
     //let score = you.actor.data.data.skills.itm.total
     let r = new Roll('d20')
@@ -69,7 +69,10 @@ function evaluateThreat(combat, me, you) {
 }
 
 
-function findDistance(me, you) {
-  let d =  Math.floor(Math.sqrt(Math.pow(me.token.x - you.token.x, 2) + Math.pow(me.token.y-you.token.y,2)) / 50) * 5
+function findDistance(combat, me, you) {
+  //console.log("FINDING DISTANCE...?")
+  //console.log("me in findDistance: ")
+  //console.log(me)
+  let d =  Math.floor(Math.sqrt(Math.pow(me.combatant.token.x - you.combatant.token.x, 2) + Math.pow(me.combatant.token.y-you.combatant.token.y,2)) / 50) * 5
   return d;
 }
